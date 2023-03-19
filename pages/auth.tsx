@@ -3,6 +3,8 @@ import axios from "axios";
 import React, { useCallback, useState } from "react";
 import {signIn} from "next-auth/react"
 import { useRouter } from "next/router";
+import {FcGoogle} from 'react-icons/fc';
+import {FaGithub} from 'react-icons/fa';
 
 const Auth = () => {
     const router = useRouter();
@@ -81,6 +83,14 @@ const Auth = () => {
             <button onClick={variant === 'login' ? login : register} className="bg-red-600 text-white py-3 mt-10 rounded-md w-full hover:bg-red-700 transition">
                 {variant === 'login' ? 'Login' : 'Sign up'}
             </button>
+            <div className="flex flex-row gap-4 justify-center items-center mt-10 w-full">
+              <div className="bg-white rounded-full w-10 h-10 flex items-center justify-center hover:opacity-70 cursor-pointer transition">
+                <FcGoogle size={30}/>
+              </div>
+              <div className="bg-white rounded-full w-10 h-10 flex items-center justify-center hover:opacity-70 cursor-pointer transition">
+                <FaGithub size={30}/>
+              </div>
+            </div>
             <p className="text-neutral-500 mt-12 text-center"> {variant === 'login' ? 'New to netflix? ' : 'Already have an account? '} 
                 <span className="text-white ml-1 cursor-pointer hover:underline" onClick={changeVariant}>{variant === 'login' ? 'create an account' : 'login'}</span>
             </p>
